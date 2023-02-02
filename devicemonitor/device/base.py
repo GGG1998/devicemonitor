@@ -18,7 +18,6 @@ class BaseDevice(abc.ABC):
             raise ValueError("model is not defined")
 
         self._model = model
-        print("model: ", self._model)
         self._parser = parser()
 
     def open(self):

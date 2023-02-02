@@ -21,8 +21,6 @@ class BaseModel(ABC):
                 isinstance(field, BooleanInput) or \
                 isinstance(field, StringInput):
             return field.type(self._data[field.field_name])
-        else:
-            return None
 
     @abstractmethod
     def show(self):
