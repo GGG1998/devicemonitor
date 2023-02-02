@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from typing import Union
 
 from devicemonitor.model.input import FloatInput, IntegerInput, BooleanInput, StringInput
 
@@ -13,7 +14,7 @@ class BaseModel(ABC):
             if serialized is not None:
                 setattr(self, field, serialized)
 
-    def _serialize(self, field):
+    def _serialize(self, field) -> Union[float, int, bool, str]:
         # List of fields from Model and constrain by FloatInput, IntegerInput, BooleanInput, StringInput
         if isinstance(field, FloatInput) or \
                 isinstance(field, IntegerInput) or \
